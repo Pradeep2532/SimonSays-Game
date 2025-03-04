@@ -3,7 +3,11 @@ let userSeq = [];
 let btns = ["yellow", "red", "purple", "green"];
 let start = false;
 let level = 0;
-let h2 = document.querySelector("h2")
+let highestScore = localStorage.getItem("highestScore")||0;
+let h2 = document.querySelector("h2");
+let h3 = document.querySelector("h3");
+h3.innerText = `Your Highest Score is :  ${highestScore}`;
+
 
 document.addEventListener("keypress", function(){
     if(start == false){
@@ -52,6 +56,11 @@ function checkAns(idx){
             setTimeout(levelUp, 500);
         }
     } else{
+        if(level>highestScore){
+            highestScore = level
+            localStorage.setItem("highestScore", highestScore);
+            h3.innerText = `Your Highest Score is :  ${highestScore}`
+        }
         h2.innerHTML = `Game Over! Your Scour was <b>${level}</b> <br>Press any key to start game`;
         document.querySelector("body").style.backgroundColor="red"
         setTimeout(function(){
