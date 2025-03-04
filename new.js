@@ -64,7 +64,7 @@ function checkAns(idx){
         h2.innerHTML = `Game Over! Your Scour was <b>${level}</b> <br>Press any key to start game`;
         document.querySelector("body").style.backgroundColor="red"
         setTimeout(function(){
-             document.querySelector("body").style.backgroundColor="white"
+             document.querySelector("body").style.backgroundColor=" #C7A07A"
         }, 200);
         reset();
     }
